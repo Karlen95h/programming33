@@ -1,7 +1,6 @@
 class Verjin  extends LivingCreature{
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+        super(x,y)
         this.energy = 9;
         this.multiply = 0
         this.directions = [];
