@@ -12,16 +12,16 @@ module.exports = class Verjin  extends LivingCreature{
     mul() {
         this.multiply++;
         var emptyCells = this.chooseCell(0);
-        var newCell = random(emptyCells);
+        var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
 
-        console.log(emptyCells);
+        
         if (newCell && this.multiply >= 15) {
             var newX = newCell[0];
             var newY = newCell[1];
             matrix[newY][newX] = 5;
 
             var verjin = new Verjin(newX, newY);
-            VerjinArr.push(verjin);
+            verjinArr.push(verjin);
             this.multiply = 0;
         }
     }
@@ -29,10 +29,10 @@ module.exports = class Verjin  extends LivingCreature{
     move() {
         this.energy--
         var emptyCells = this.chooseCell(0)
-        var newCell = random(emptyCells);
+        var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
 
         if (newCell && this.energy >= 0) {
-            console.log(newCell)
+            
             var newX = newCell[0]
             var newY = newCell[1]
             matrix[newY][newX] = matrix[this.y][this.x]
@@ -49,7 +49,7 @@ module.exports = class Verjin  extends LivingCreature{
 
     eat() {
         var emptyCells = this.chooseCell(4)
-        var newCell = random(emptyCells);
+        var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
 
         if (newCell) {
             this.energy++
